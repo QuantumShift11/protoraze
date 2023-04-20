@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs') %>
+</head>
+<body>
+    <header>
+        <%- include('../partials/navbar.ejs') %>
+    </header>
+    <main class="container">
+        <center><h1>Password change</h1></center>
+        <div  class="content">
+        <form action="/change_pass" method="POST">
+            <div class="form-group">
+                <!--<label for="email">Change password</label> -->
+                <input type="password" class="form-control" id="password" name="password" placeholder="password">
+            </div>
+            <div class="form-group">
+                <!-- <label for="password">Confirm password</label> -->
+                <input type="password" class="form-control" id="password1" name="password1" placeholder="Confirm password">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-lg btn-block btn-primary" value="Change">
+            </div>
+        </form>
+        </div>
+        <% if(pass_incorrect=='main') { %>
+            
+          <% } else { %>
+            <% if(pass_incorrect=='changed') { %>
+                <h1> Password Changed Successfully !!! </h1>
+              <% } else { %>
+                <h1> Password Doesn't Match !!! </h1>
+              <% } %>
+          <% } %>
+    </main>
+    <footer>
+        <%- include('../partials/footer.ejs') %>
+    </footer>
+</body>
+</html>

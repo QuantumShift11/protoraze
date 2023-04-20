@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Vulnerable_App</a>
+    <ul class="navbar-nav ml-auto">
+      <% if(isLoggedIn) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="">First_Name.Last_Name</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://192.168.29.189:8090/my_account">My Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      <% } else { %>
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/signup">Signup</a>
+      </li>
+      <% } %>
+    </ul>
+  </nav>

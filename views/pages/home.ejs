@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs') %>
+</head>
+<body>
+    <header>
+        <%- include('../partials/navbar.ejs') %>
+    </header>
+    <main class="container">
+        <div class="content">
+            <h1>Hello <%= name %>, You are at the home page!! </h1>
+            <a href="http://192.168.29.189:8090/razor">XSS</a><br><br>
+            <a href="http://192.168.29.189:8090/change_pass">CSRF</a><br><br>
+            <a href="http://192.168.29.189:8070/tabnab_script" target="_blank" rel="opener">Reverse Tabnabbing</a>
+        </div>        
+    </main>
+    <footer>
+        <%- include('../partials/footer.ejs') %>
+    </footer>
+</body>
+</html>
+
+<!-- make host name dynamic as per server ip address -->
