@@ -155,13 +155,23 @@ exports.logoutPage = function(req,res){
 }
 
 
-exports.razor = function(req,res){
-    res.render("pages/razor",{
-        //"error":"Please fill in all the fields.",
-        error: false,
-        isLoggedIn:true,
-        query:false
-    });
+exports.razor = async function(req,res){
+
+    if (req.session.user) {
+        let user = await User.findById(req.session.user);
+        console.log(user.first_name + ' ' + user.last_name)
+        res.render("pages/razor",{
+            //"error":"Please fill in all the fields.",
+            error: false,
+            isLoggedIn:true,
+            query:false,
+            name: user.first_name + ' ' + user.last_name,
+        });
+
+    }
+    else {
+        res.redirect("/login");
+    }
 }
 
 // bring input on same page only but render only that with if condition if it has a 
@@ -173,24 +183,42 @@ exports.processRazor = async function(req,res){
     //let name_in = req.body.name; // FOR POST body
     // check if we have data.
     console.log('input entered is OUT '+ name_in)
-    if(name_in){
-        console.log('input entered is IN '+ name_in)
-        res.render("pages/razor_ref", {
-            //error: false,
-            name_in:name_in ,
-            isLoggedIn: true,
-            //query:true
+
+    if (req.session.user) {
+        let user = await User.findById(req.session.user);
+        console.log(user.first_name + ' ' + user.last_name)
+
+        if(name_in){
+        res.render("pages/razor_ref",{
+            //"error":"Please fill in all the fields.",
+            error: false,
+            isLoggedIn:true,
+            query:false,
+            name: user.first_name + ' ' + user.last_name,
+            name_in:name_in
         });
-        }
     }
 
-exports.change_pass = function(req,res){
+    }
+    else {
+        res.redirect("/login");
+    }
+    
+    }
+
+exports.change_pass = async function(req,res){
+    if (req.session.user) {
+        let user = await User.findById(req.session.user);
+        console.log(user.first_name + ' ' + user.last_name)
+
         res.render("pages/change_pass",{
             //"error":"Please fill in all the fields.",
             isLoggedIn:true,
-            pass_incorrect:'main'
+            pass_incorrect:'main',
+            name: user.first_name + ' ' + user.last_name
         });
     }
+}
 
 
 exports.processChange_pass = async function(req,res){
@@ -220,7 +248,8 @@ exports.processChange_pass = async function(req,res){
             res.render("pages/change_pass", {
                 isLoggedIn:true,
                 pass_incorrect:'changed',
-                msg: "Password changed successfully !!!"    
+                msg: "Password changed successfully !!!",
+                name: user.first_name + ' ' + user.last_name    
             });
 
         } else {
@@ -242,11 +271,22 @@ exports.processChange_pass = async function(req,res){
     }
 }
 
-exports.my_account = function(req,res){
+exports.my_account = async function(req,res){
+
+    if (req.session.user) {
+        let user = await User.findById(req.session.user);
+        console.log(user.first_name + ' ' + user.last_name)
         res.render("pages/my_account",{
             //"error":"Please fill in all the fields.",
-            isLoggedIn:true
+            //name_in: user.first_name + ' ' + user.last_name,
+            isLoggedIn:true,
+            name: user.first_name + ' ' + user.last_name
         });
+
+    }
+    else {
+        res.redirect("/login");
+    }
     }
 
 exports.deleteAccount = async function(req,res){

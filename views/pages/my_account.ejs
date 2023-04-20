@@ -13,7 +13,7 @@
                 <div id="account-content">
                     <!-- wiener has to be based on session -->
                     <!-- show same things as dashboard like my account home-->
-                    <p>Your username is: wiener</p>
+                    <p>Your username is: <%= name %></p>
                     <form class="login-form" name="change-email-form" action="/my-account/change-email" method="POST">
                         <label>Email</label>
                         <input required="" type="email" name="email" value="">

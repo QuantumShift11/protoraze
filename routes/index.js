@@ -7,6 +7,8 @@ const {homePage,loginPage,processLogin,signupPage,processSignup,logoutPage,razor
 
 router.get("/home",homePage); // Home page
 
+router.get("/",loginPage); // Login page
+
 router.get("/login",loginPage); // Login page
 
 router.post("/login",processLogin); // Process login
