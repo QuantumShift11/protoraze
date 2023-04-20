@@ -52,7 +52,7 @@ exports.processLogin = async function(req,res){
                 //console.log(' req.session.user ' + req.session.user)
                 // Redirect to the home page.
                 console.log('processLogin Session before login : '+req.session.user)
-                res.redirect("/");
+                res.redirect("/home");
             }else{
                 // return an error.
                 res.render("pages/login",{
@@ -126,7 +126,7 @@ exports.processSignup = async function(req,res){
                     console.log('newUser '+newUser._id)
                     console.log('req.session.user '+req.session.user)
                     // Redirect to the home page.
-                    res.redirect("/");
+                    res.redirect("/home");
                 }
             });
         }else{
@@ -227,9 +227,7 @@ exports.processChange_pass = async function(req,res){
 
             console.log(' Session no exists for _id and redis_session ')
 
-            res.redirect(200,"pages/login", {
-                isLoggedIn:false    
-            });
+            res.redirect("/login");
             
         }
     
@@ -261,12 +259,14 @@ exports.deleteAccount = async function(req,res){
             let delete_user = await User.findOneAndRemove({ _id: user_id });
     
             console.log('delete_user' + delete_user)
-    
+            
+            res.redirect("/login");
+            /*
             res.render("pages/login",{
                 "error":"",
                 "isLoggedIn": false
             });
-
+            */
             // render and redirect 
 
         } else {
@@ -275,9 +275,7 @@ exports.deleteAccount = async function(req,res){
     
             console.log(' Session no exists for _id and redis_session ')
     
-            res.redirect(200,"pages/login", {
-                isLoggedIn:false    
-            });
+            res.redirect("/login");
             
         }
         }
