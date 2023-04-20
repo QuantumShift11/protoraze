@@ -2,6 +2,18 @@
 <html lang="en">
 <head>
     <%- include('../partials/head.ejs') %>
+    <style>
+        #bt2 {
+            position:relative;
+            width:126px;
+            height: 36px;
+            position:absolute;
+            top:145px;
+            left:385px;
+            z-index: 1;
+
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,13 +30,13 @@
                         <label>Email</label>
                         <input required="" type="email" name="email" value="">
                         <input required="" type="hidden" name="csrf" value="oab0E6tYxdT76KRyv2rPT2tpqag6B5EM">
-                        <button class="button" type="submit"> Update email </button>
+                        <button id="bt1" class="button" type="submit"> Update email </button>
                     </form>
                     <form id="delete-account-form" action="/my_account" method="POST">
                         <!--  implement csrf protection as well || send a token from here | populate when page is rendered | and compare while checking the request csrf token -->
                         <!--  <input required="" type="hidden" name="csrf" value="oab0E6tYxdT76KRyv2rPT2tpqag6B5EM">  -->
 
-                        <button class="button" type="submit">Delete account</button>
+                        <button id="bt2" class="button" type="submit">Delete account</button>
                     </form>
                 </div>
             </div>

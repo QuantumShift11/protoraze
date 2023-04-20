@@ -2,6 +2,35 @@
 <html lang="en">
 <head>
     <%- include('../partials/head.ejs') %>
+    <style>
+        h1 {
+            position:absolute;
+            top:-160px;
+            left:-16px;
+            font-size: 24px;
+            z-index: 1;
+        }
+        div {
+            position:absolute;
+            top:227px;
+            left:26px;
+            z-index: 1;
+        }
+        .content {
+    width: 94%;
+    height: 60vh;
+    margin: 10px auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+        #xss ,#csrf , #rev_tab {
+            border: 35px solid rgb(108, 86, 182);
+            padding: 30px;
+            margin: 50px;
+        }  
+
+    </style>
 </head>
 <body>
     <header>
@@ -9,10 +38,10 @@
     </header>
     <main class="container">
         <div class="content">
-            <h1>Hello <%= name %>, You are at the home page!! </h1>
-            <a href="http://192.168.29.189:8090/razor">XSS</a><br><br>
-            <a href="http://192.168.29.189:8090/change_pass">CSRF</a><br><br>
-            <a href="http://192.168.29.189:8070/tabnab_script" target="_blank" rel="opener">Reverse Tabnabbing</a>
+            <h1>Hello <%= name %>, Welcome to your Dashboard ! </h1>
+            <a id="xss" href="http://protoraze.com:8090/razor">XSS</a><br><br>
+            <a id="csrf" href="http://protoraze.com:8090/change_pass">CSRF</a><br><br>
+            <a id="rev_tab" href="http://malicious.com:8070/tabnab_script" target="_blank" rel="opener">Reverse Tabnabbing</a>
         </div>        
     </main>
     <footer>
