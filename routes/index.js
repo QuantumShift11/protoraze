@@ -5,7 +5,7 @@ const router = express.Router();
 
 const {homePage,loginPage,processLogin,signupPage,processSignup,logoutPage,razor,processRazor,change_pass,processChange_pass,my_account,deleteAccount} = require("../controllers/user");
 
-router.get("/home",homePage); // Home page
+router.get("/dashboard",homePage); // Home page
 
 router.get("/",loginPage); // Login page
 

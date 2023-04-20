@@ -8,7 +8,7 @@ exports.homePage = async function(req, res) {
         let user = await User.findById(req.session.user);
         console.log('What is this value Y??? '+user+' What is this value X? '+req.session.user)
         // Render the home page
-        res.render("pages/home", {
+        res.render("pages/dashboard", {
             name: user.first_name + ' ' + user.last_name,
             isLoggedIn: true
         });
@@ -52,7 +52,7 @@ exports.processLogin = async function(req,res){
                 //console.log(' req.session.user ' + req.session.user)
                 // Redirect to the home page.
                 console.log('processLogin Session before login : '+req.session.user)
-                res.redirect("/home");
+                res.redirect("/dashboard");
             }else{
                 // return an error.
                 res.render("pages/login",{
@@ -126,7 +126,7 @@ exports.processSignup = async function(req,res){
                     console.log('newUser '+newUser._id)
                     console.log('req.session.user '+req.session.user)
                     // Redirect to the home page.
-                    res.redirect("/home");
+                    res.redirect("/dashboard");
                 }
             });
         }else{
