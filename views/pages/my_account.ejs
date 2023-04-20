@@ -3,26 +3,35 @@
 <head>
     <%- include('../partials/head.ejs') %>
     <style>
-        #bt2 {
-            position:relative;
-            width:126px;
-            height: 36px;
-            position:absolute;
-            top:145px;
-            left:385px;
-            z-index: 1;
-
-        }
+        .box {
+    margin: 0 auto;
+    width: 600px;
+    padding: 73px;
+    background: #f9f9f9;
+    border: 2px solid #333;
+}
+.box {
+    position: absolute;
+    top: 90px;
+    left: 35px;
+    z-index: 1;
+}
+     #bt2 {
+    position: relative;
+    width: 126px;
+    height: 36px;
+    position: absolute;
+    top: 169px;
+    left: 306px;
+    z-index: 1;
+}
     </style>
 </head>
 <body>
     <header>
         <%- include('../partials/navbar.ejs') %>
     </header>
-    <div theme="">
-        <section class="maincontainer">
-            <div class="container is-page">
-                <div id="account-content">
+    <div class="box">
                     <!-- wiener has to be based on session -->
                     <!-- show same things as dashboard like my account home-->
                     <p>Your username is: <%= name %></p>
@@ -38,11 +47,7 @@
 
                         <button id="bt2" class="button" type="submit">Delete account</button>
                     </form>
-                </div>
-            </div>
-        </section>
     </div>
-
     <footer>
         <%- include('../partials/footer.ejs') %>
     </footer>

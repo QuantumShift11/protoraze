@@ -2,6 +2,21 @@
 <html lang="en">
 <head>
     <%- include('../partials/head.ejs') %>
+    <style>
+        h1 {
+            position:absolute;
+            top:90px;
+            left:595px;
+            z-index: 1;
+        }
+        #ref {
+            position:absolute;
+            top:225px;
+            left:766px;
+            z-index: 1;
+            font-size: 33px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -9,6 +24,10 @@
     </header>
     <main class="container">
         <center><h1>Enter your name to proceed further</h1></center>
+        <% if(name_in) { %>
+            <p id="ref">input entered is <%= name_in %></p>
+          <% } else { %>
+          <% } %>
         <div  class="content">
         <form action="/razorf" method="GET">
             <div class="form-group">
@@ -18,11 +37,6 @@
                 <input type="submit" class="btn btn-lg btn-block btn-primary" value="Submit">
             </div>
         </form>
-        <% if(name_in) { %>
-            <h1>input entered is <%= name_in %></h1>
-          <% } else { %>
-          <% } %>
-
         </div>
     </main> 
     <footer>
