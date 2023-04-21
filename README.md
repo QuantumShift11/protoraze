@@ -21,8 +21,12 @@ res.redirect();    - send to render code and path
 192.168.29.189 protoraze.com
 192.168.29.189 malicious.com
 
-http://protoraze.com:8090
+
 http://malicious.com:8070
+
+
+https://vulnerable.meddler.io/
+https://malicious.meddler.io/
 
 
 -------------

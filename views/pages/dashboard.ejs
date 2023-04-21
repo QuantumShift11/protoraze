@@ -39,10 +39,10 @@
     <main class="container">
         <div class="content">
             <h1>Hello <%= name %>, Welcome to your Dashboard ! </h1>
-            <a id="xss" href="http://protoraze.com:8090/razor">XSS</a><br><br>
-            <a id="csrf" href="http://protoraze.com:8090/change_pass">CSRF</a><br><br>
-            <a id="rev_tab" href="http://malicious.com:8070/tabnab_script" target="_blank" rel="opener">Reverse Tabnabbing</a>
-            <a id="ui" href="http://protoraze.com:8090/my_account">Clickjacking (UI redressing)</a>
+            <a id="xss" href="/razor">XSS</a><br><br>
+            <a id="csrf" href="/change_pass">CSRF</a><br><br>
+            <a id="rev_tab" href="https://malicious.meddler.io/tabnab_script" target="_blank" rel="opener">Reverse Tabnabbing</a>
+            <a id="ui" href="/my_account">Clickjacking (UI redressing)</a>
         </div>        
     </main>
     <footer>
