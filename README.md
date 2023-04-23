@@ -1,8 +1,16 @@
 ### PROTORAZE
 
+
+requirement - 
+*redis        - docker local or connection string for remote
+*mongoose     - docker local or connection string for remote
+*nvm node npm - 
+
+npm run dev
+npm run prod
+
 npm i bcrypt connect-redis ejs express express-session redis mongoose
 npm run dev
-
 
 redis-server 
 redis-cli KEYS \* 
@@ -44,10 +52,13 @@ element {}
 
 <%- name_in %> - does not escapes
 
+In search.ejs and searchf.ejs , we are escaping h1 variable name_in but not img tag 
 
 ---------------------------------------------------------------------------------------------------------------------
 
+ps aux 
 
+kill -9 pid
 
 
 

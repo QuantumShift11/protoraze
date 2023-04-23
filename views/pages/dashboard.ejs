@@ -29,7 +29,30 @@
             padding: 30px;
             margin: 50px;
         }  
-
+#razor {
+        position:absolute;
+        top:457px;
+        left:177px;
+        z-index: 1;
+}
+#search {
+        position:absolute;
+        top:457px;
+        left:320px;
+        z-index: 1;
+}
+.vl1 {
+  border-left: 5px solid #121aad;
+  height: 80px;
+  left:225px;
+  top:378px;
+}
+.vl2 {
+  border-left: 5px solid #121aad;
+  height: 80px;
+  left:380px;
+  top:378px;
+}
     </style>
 </head>
 <body>
@@ -39,7 +62,13 @@
     <main class="container">
         <div class="content">
             <h1>Hello <%= name %>, Welcome to your Dashboard ! </h1>
-            <a id="xss" href="/razor">XSS</a><br><br>
+            <a id="xss" href="/views/pages/dashboard">XSS</a><br><br>
+            <div class="vl1">
+            </div>
+            <div class="vl2">
+            </div>
+            <a id="razor" href="/razor">Reflected-XSS</a><br><br>
+            <a id="search" href="/search">DOM-Based-XSS</a><br><br>
             <a id="csrf" href="/change_pass">CSRF</a><br><br>
             <a id="rev_tab" href="https://malicious.meddler.io/tabnab_script" target="_blank" rel="opener">Reverse Tabnabbing</a>
             <a id="ui" href="/my_account">Clickjacking (UI redressing)</a>
