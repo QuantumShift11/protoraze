@@ -321,10 +321,52 @@ exports.deleteAccount = async function(req,res){
         }
     
 
+exports.search = async function(req,res){
 
+            if (req.session.user) {
+                let user = await User.findById(req.session.user);
+                console.log(user.first_name + ' ' + user.last_name)
+                res.render("pages/search",{
+                    //"error":"Please fill in all the fields.",
+                    error: false,
+                    isLoggedIn:true,
+                    //query:false,
+                    name: user.first_name + ' ' + user.last_name,
+                });
+        
+            }
+            else {
+                res.redirect("/login");
+            }
+        }
 
+exports.searchf = async function(req,res){
 
+    let name_in = req.query.name; // for GET 
+    //let name_in = req.body.name; // FOR POST body
+    // check if we have data.
+    console.log('input entered is OUT '+ name_in)
 
+    if (req.session.user) {
+        let user = await User.findById(req.session.user);
+        console.log(user.first_name + ' ' + user.last_name)
+
+        if(name_in){
+        res.render("pages/searchf",{
+            //"error":"Please fill in all the fields.",
+            error: false,
+            isLoggedIn:true,
+            //query:false,
+            name: user.first_name + ' ' + user.last_name,
+            name_in:name_in
+        });
+    }
+
+    }
+    else {
+        res.redirect("/login");
+    }
+        }
 
 
 

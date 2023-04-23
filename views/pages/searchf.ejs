@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs') %>
+    <style>
+        h1 {
+            position:absolute;
+            top:90px;
+            left:595px;
+            z-index: 1;
+        }
+        #ref {
+            position:absolute;
+            top:225px;
+            left:766px;
+            z-index: 1;
+            font-size: 33px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <%- include('../partials/navbar.ejs') %>
+    </header>
+    <main class="container">
+        <center><h1>Enter your name to proceed further</h1></center>
+        <% if(name_in) { %>
+            <p id="ref">input entered is <%- name_in %></p>
+          <% } else { %>
+          <% } %>
+        <div  class="content">
+        <form action="/searchf" method="GET">
+            <div class="form-group">
+                <input type="text" class="form-control" id="name" name="name" placeholder="name">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-lg btn-block btn-primary" value="Submit">
+            </div>
+        </form>
+        </div>
+    </main> 
+    <script>
+        function trackSearch(query) {
+            document.write('<img src="/public/images/tracker.gif?searchTerms='+query+'">');
+        }
+        var query = (new URLSearchParams(window.location.search)).get('name');
+        if(query) {
+            trackSearch(query);
+        }
+    </script>
+    <footer>
+        <%- include('../partials/footer.ejs') %>
+    </footer>
+</body>
+</html>

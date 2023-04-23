@@ -3,7 +3,7 @@ const router = express.Router();
 
 //const {homePage,loginPage,processLogin,signupPage,processSignup,logoutPage} = require("../controllers/user");
 
-const {homePage,loginPage,processLogin,signupPage,processSignup,logoutPage,razor,processRazor,change_pass,processChange_pass,my_account,deleteAccount} = require("../controllers/user");
+const {homePage,loginPage,processLogin,signupPage,processSignup,logoutPage,razor,processRazor,change_pass,processChange_pass,my_account,deleteAccount,search,searchf} = require("../controllers/user");
 
 router.get("/dashboard",homePage); // Home page
 
@@ -32,6 +32,12 @@ router.post("/change_pass",processChange_pass); // CSRF process
 router.get("/my_account",my_account); // my_account
 
 router.post("/my_account",deleteAccount); // account_delete
+
+router.get("/search",search); // search delete
+
+router.get("/searchf",searchf); // search delete
+
+//router.post("/processSearch",processSearch); // account_delete
 
 module.exports = router;
 
