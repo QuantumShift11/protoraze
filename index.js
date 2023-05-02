@@ -31,7 +31,8 @@ app.use(
         cookie:{
             secure:false, // Only set to true if you are using HTTPS.
             httpOnly:false, // Only set to true if you are using HTTPS.
-            maxAge:12000000 // Session max age in milliseconds.
+            maxAge:1000 * 60 * 60 * 24 * 7 // Session max age in milliseconds.
+            //expires : 1000 * 60 * 60 * 24 * 7
         } 
     })
 );
