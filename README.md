@@ -10,7 +10,12 @@ npm run dev
 npm run prod
 
 npm i bcrypt connect-redis ejs express express-session redis mongoose
+npm i morgan
 npm run dev
+npm run prod
+
+const morgan = require('morgan');
+app.use(morgan('dev'));
 
 redis-server 
 redis-cli KEYS \* 
@@ -61,6 +66,10 @@ ps aux
 kill -9 pid
 
 
+sudo lsof -i -P -n | grep '8090'
+kill -9 PID
+
+Use stolen cookie_sid and replace via inspect tools -> application cookie -> replace with stolen one -> refresh
 
 ---------------------------------------------------------------------------------------------------------------------
 
